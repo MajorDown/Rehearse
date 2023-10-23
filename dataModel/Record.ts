@@ -1,14 +1,12 @@
-type Session = string;
-type Url = string; 
-type Title = string;
-type Album = string;
+import {Session, Title, Album, Url, Artist} from "./types";
 
 export class Record {
     constructor(
       public session: Session,
       public title: Title,
       public album: Album,
-      public url: Url
+      public url: Url,
+      public artist: Artist
     ) {
       // Vous pouvez ajouter ici des validations pour session et url si nécessaire
       if (!this.isValidSession(session)) {
