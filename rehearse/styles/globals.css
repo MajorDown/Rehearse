@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Georama&display=swap');
+
+:root {
+    --fontTitle: 'Finger Paint', sans-serif;
+    --fontApp: 'Georama', sans-serif;
+    --colorBack: #001B1F;
+    --colorText: #99F5FF;
+    --colorIcon: #BAFFD1;
+    --colorHover: #B65700;
+    --borderWindow: 10px solid #99F5FF;
+    --paddingWindow: 20px;
+}
