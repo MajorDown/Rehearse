@@ -6,9 +6,12 @@ export default function Home() {
   return (
     <section id={"welcomeSection"} className={"scrollable"}>
       <h2 className={titleFont.className}>Bienvenue !</h2>
-      <p>Rehearse est une application de gestion de session d'enregistrements musicaux.</p>
-      <p>Terminé les enregistrements de vos répet' stocké en vrac !</p>
-      <p>Avec Rehearse, vos sessions sont organisés très simplement, selon vos besoins du moment : triées par date, par album ou par titre, chacun de vos Record est stocké de manière sécurisé.</p>
-    </section>
+      <div id={"welcomer"}>
+        <p>Rehearse est une application de gestion de session d'enregistrements musicaux.</p>
+        <p>Terminé les enregistrements de vos répet' stocké en vrac !</p>
+        <>Avec Rehearse, vos sessions sont organisés très simplement, selon vos besoins du moment :
+        triées par date, par album ou par titre, chacun de vos Record est stocké de manière sécurisé.</p>
+      </div>
+    </section> // Add closing tag for the section element
   )
 }
