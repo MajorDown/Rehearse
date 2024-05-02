@@ -1,12 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Georama&display=swap');
-
 :root {
-    --fontTitle: 'Finger Paint', sans-serif;
-    --fontApp: 'Georama', sans-serif;
     --colorBack: #001B1F;
     --colorText: #99F5FF;
     --colorIcon: #BAFFD1;
     --colorHover: #B65700;
+    --radiusItem: 10px;
     --borderWindow: 10px solid #99F5FF;
+    --borderHover: 10px solid #B65700;
     --paddingWindow: 20px;
+    --paddingItem: 10px 20px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: var(--colorText)
+}
+
+body {
+    background: url(../public/images/background.jpg) no-repeat fixed top center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+header,
+footer {
+    flex-grow: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 200px;
+}
+
+#headerTitle {
+    position: relative;
+    width: 480px;
+    height: 100%;
+    margin-top: 10px;
+}
+
+h1 {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 64px;
+    line-height: 64px;
+    z-index: 1;
+    text-shadow: var(--colorBack) 0px 0px 20px;
+}
+
+#headerLogo {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+#headerSlogan {
+    position: absolute;
+    top: 80%;
+    left: 38%;
+    font-size: 20px;
+    line-height: 20px;
+    width: fit-content;
+}
+
+main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+section {
+    max-height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.scrollable::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background: var(--colorText);
+    border-radius: 5px;
+}
+
+
+
+footer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

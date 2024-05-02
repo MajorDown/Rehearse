@@ -1,8 +1,10 @@
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Georama } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const georama = Georama({weight: '400', subsets: ['latin']})
 
 export const metadata: Metadata = {
   title: 'Rehearse',
@@ -16,7 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={inter.className}>{children}</body>
+      <body className={georama.className}>
+        <Header />
+        <main>
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   )
 }
