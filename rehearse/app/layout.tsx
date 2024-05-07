@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Georama } from 'next/font/google'
+import { UserProvider } from '@/contexts/userContext'
 
 const georama = Georama({weight: '400', subsets: ['latin']})
 
@@ -19,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={georama.className}>
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <UserProvider>
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </UserProvider>
       </body>
     </html>
   )

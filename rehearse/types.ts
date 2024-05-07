@@ -13,3 +13,8 @@ export type User = {
 export type ConnectedUser = Omit<User, 'password'> & {
     authToken: string;
 }
+
+export type UserContext = {
+    user: ConnectedUser | null;
+    updateUser: (user: ConnectedUser | null) => void;
+}

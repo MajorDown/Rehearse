@@ -12,6 +12,6 @@ export default function Home() {
         <p>Avec Rehearse, vos sessions sont organisés très simplement, selon vos besoins du moment :
         triées par date, par album ou par titre, chacun de vos Record est stocké de manière sécurisé.</p>
       </div>
-    </section> // Add closing tag for the section element
+    </section>
   )
 }
