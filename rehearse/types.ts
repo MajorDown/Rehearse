@@ -15,6 +15,6 @@ export type ConnectedUser = Omit<User, 'password'> & {
 }
 
 export type UserContext = {
-    user: ConnectedUser | null;
-    updateUser: (user: ConnectedUser | null) => void;
+    connectedUser: ConnectedUser | null;
+    updateConnectedUser: (user: ConnectedUser | null) => void;
 }
