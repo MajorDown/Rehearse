@@ -1,11 +1,9 @@
-import { Finger_Paint } from 'next/font/google';
-const titleFont = Finger_Paint({weight: '400', subsets: ['latin']});
+import PageTitle from '@/components/PageTitle';
 
 export default function Home() {
-
   return (
     <section id={"welcomeSection"} className={"scrollable"}>
-      <h2 className={titleFont.className}>Bienvenue !</h2>
+      <PageTitle title={"Bienvenue !"} />
       <div id={"welcomer"}>
         <p>Rehearse est une application de gestion de session d'enregistrements musicaux.</p>
         <p>Terminé les enregistrements de vos répet' stocké en vrac !</p>

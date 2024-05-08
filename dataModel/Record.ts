@@ -1,4 +1,4 @@
-import { Session, Title, Album, Url, Artist } from "./types";
+import { Session, Title, Album, Url, Artist } from "../rehearse/types";
 
 export class Record {
   private session: Session;
