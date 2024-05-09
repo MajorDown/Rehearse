@@ -1,14 +1,12 @@
-import PageTitle from '@/components/PageTitle';
+import PageSection from "@/components/PageSection";
 
 const Options = () => {
-  return (
-    <section id={"optionsSection"} className={"scrollable"}>
-        <PageTitle title={"Options"}/>
-        <div>
-            <p>Options à venir...</p>
-        </div>
-    </section>
-  )
+    
+    return (
+        <PageSection title="Options" id="optionsSection">
+            <p>les options</p>
+        </PageSection>
+    )
 }
 
 export default Options;
