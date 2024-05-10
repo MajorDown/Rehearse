@@ -15,18 +15,20 @@ export const UserProvider = ({ children }: PropsWithChildren<{}>): JSX.Element =
   
   // SYNCHRONISATION DU USER AVEC LOCALSTORAGE
   const getConnectedUser = (): ConnectedUser | null => {
-    const StringifiedUser = localStorage.getItem('rehearse-connected-user');
-    return StringifiedUser ? JSON.parse(StringifiedUser) : null;
+      const StringifiedUser = localStorage.getItem('rehearse-connected-user');
+      return StringifiedUser ? JSON.parse(StringifiedUser) : null;
   };
   
   const [connectedUser, updateConnectedUser] = useState<ConnectedUser | null>(getConnectedUser);
 
   // SYNCHRONISATION DU LOCALSTORAGE AVEC LE USER
   useEffect(() => {
-    if (connectedUser) {
-      localStorage.setItem('rehearse-connected-user', JSON.stringify(connectedUser));
-    } else {
-      localStorage.removeItem('rehearse-connected-user');
+    if (window) {
+      if (connectedUser) {
+        localStorage.setItem('rehearse-connected-user', JSON.stringify(connectedUser));
+      } else {
+        localStorage.removeItem('rehearse-connected-user');
+      }
     }
   }, [connectedUser]);
 
