@@ -1,11 +1,12 @@
 'use client'
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import PageSection from "@/components/PageSection";
 
-const Connexion = () => {
+const Inscription = () => {
     const [errorMsg, setErrorMsg] = useState<string>("");
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
+    const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -13,10 +14,10 @@ const Connexion = () => {
     };  
 
     return (
-        <PageSection title="Connectez-vous !" id="connexionSection">
+        <PageSection title="Inscrivez-vous !" id="inscriptionSection">
             <form onSubmit={(event) => handleSubmit(event)}>
                 <div className={"inputWrapper"}>
-                    <label htmlFor="email">Votre Email :</label>
+                    <label htmlFor="email">Renseignez Votre Email :</label>
                     <input 
                         type="email" 
                         name="email" 
@@ -27,7 +28,7 @@ const Connexion = () => {
                     />
                 </div>
                 <div className={"inputWrapper"}>
-                    <label htmlFor="password">Votre Mot de passe :</label>
+                    <label htmlFor="password"> Choisissez votre Mot de passe :</label>
                     <input 
                         type="password" 
                         name="password" 
@@ -36,15 +37,24 @@ const Connexion = () => {
                         ref={passwordRef}
                         required
                     />
+                    <label htmlFor="password">Confirmez votre Mot de passe :</label>
+                    <input 
+                        type="password" 
+                        name="confirmPassword" 
+                        id="confirmPassword" 
+                        placeholder="(...la même))"
+                        ref={confirmPasswordRef}
+                        required
+                    />
                 </div>
                 {errorMsg && <p className={"errorMsg"}>{errorMsg}</p>}
-                <button type="submit" className={"actionBtn"}>Se connecter</button>
+                <button type="submit" className={"actionBtn"}>S'inscrire</button>
                 <div className={"separator"}>.</div>
-                <p>Vous n'avez pas encore de compte ?</p>
-                <a href={"/inscription"} className={"actionBtn"}>Inscription</a>
+                <p>Vous possedez déjà un compte ?</p>
+                <a href={"/connexion"} className={"actionBtn"}>Connexion</a>
             </form>
         </PageSection>
     )
 }
 
-export default Connexion;
+export default Inscription;
