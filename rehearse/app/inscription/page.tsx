@@ -1,12 +1,12 @@
 'use client'
 import { useRef, useState } from "react";
 import PageSection from "@/components/PageSection";
+import PasswordValidator from "@/components/PasswordValidator";
 
 const Inscription = () => {
     const [errorMsg, setErrorMsg] = useState<string>("");
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
-    const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -29,23 +29,7 @@ const Inscription = () => {
                 </div>
                 <div className={"inputWrapper"}>
                     <label htmlFor="password"> Choisissez votre Mot de passe :</label>
-                    <input 
-                        type="password" 
-                        name="password" 
-                        id="password" 
-                        placeholder="(un autre truc que votre date de naissance)"
-                        ref={passwordRef}
-                        required
-                    />
-                    <label htmlFor="password">Confirmez votre Mot de passe :</label>
-                    <input 
-                        type="password" 
-                        name="confirmPassword" 
-                        id="confirmPassword" 
-                        placeholder="(...la même))"
-                        ref={confirmPasswordRef}
-                        required
-                    />
+                    <PasswordValidator inputRef={passwordRef}/>
                 </div>
                 {errorMsg && <p className={"errorMsg"}>{errorMsg}</p>}
                 <button type="submit" className={"actionBtn"}>S'inscrire</button>
