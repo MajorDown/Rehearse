@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, Context, createContext, useContext, useState, PropsWithChildren } from "react";
+import getConnectedUser from "@/tools/front/local/getConnectedUser";
 import { ConnectedUser, UserContext } from "@/types";
 
 const userContext: Context<UserContext> = createContext<UserContext>({
@@ -11,14 +12,7 @@ export function useUserContext(): UserContext {
   return context;
 }
 
-export const UserProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
-  
-  // SYNCHRONISATION DU USER AVEC LOCALSTORAGE
-  const getConnectedUser = (): ConnectedUser | null => {
-      const StringifiedUser = localStorage.getItem('rehearse-connected-user');
-      return StringifiedUser ? JSON.parse(StringifiedUser) : null;
-  };
-  
+export const UserProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {  
   const [connectedUser, updateConnectedUser] = useState<ConnectedUser | null>(getConnectedUser);
 
   // SYNCHRONISATION DU LOCALSTORAGE AVEC LE USER
