@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, Context, createContext, useContext, useState, PropsWithChildren } from "react";
-import getConnectedUser from "@/tools/front/local/getConnectedUser";
+import getConnectedUser from "@/tools/frontend/local/getConnectedUser";
 import { ConnectedUser, UserContext } from "@/types";
 
 const userContext: Context<UserContext> = createContext<UserContext>({
