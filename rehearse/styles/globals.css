@@ -3,6 +3,7 @@
     --colorText: #99F5FF;
     --colorIcon: #BAFFD1;
     --colorHover: #B65700;
+    --fontSize: 16px;
     --radiusItem: 10px;
     --borderWindow: 10px solid #99F5FF;
     --borderHover: 10px solid #B65700;
@@ -148,6 +149,15 @@ form {
     text-align: center;
 }
 
+.passwordValidator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+}
+
 .actionBtn {
     background-color: var(--colorText);
     color: var(--colorBack);
@@ -156,6 +166,12 @@ form {
     padding: var(--paddingItem);
     cursor: pointer;
     margin-top: 20px;
+    font-size: var(--fontSize);
+    text-decoration: none;
+}
+
+.actionBtn:hover {
+    text-decoration: underline;
 }
 
 .separator {

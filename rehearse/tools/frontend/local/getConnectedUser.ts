@@ -5,8 +5,11 @@ import { ConnectedUser } from "@/types";
  * @returns {ConnectedUser | null}
  */
 const getConnectedUser = (): ConnectedUser | null => {
-    const StringifiedUser = localStorage.getItem('rehearse-connected-user')
-    if (StringifiedUser) return JSON.parse(StringifiedUser)
+    if (window) {
+        const StringifiedUser = localStorage.getItem('rehearse-connected-user')
+        if (StringifiedUser) return JSON.parse(StringifiedUser)
+        else return null;
+    }
     else return null;
 }
 

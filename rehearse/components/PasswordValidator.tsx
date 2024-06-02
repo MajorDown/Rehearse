@@ -54,7 +54,7 @@ const PasswordValidator = (props: UIPasswordValidatorProps) => {
 
 
   return (
-    <div className={"PasswordValidator"} >
+    <div className={"passwordValidator"} >
       <PasswordInput name={"password1"} inputRef={props.inputRef} onChangeInputValue={(value) => setPassword1(value)}/>
       <input 
         type="password" 
