@@ -9,7 +9,7 @@ const sessionFormater = (date: Date): Session => {
     const padZero = (num: number): string => (num < 10 ? '0' : '') + num;
   
     const year: string = String(date.getFullYear()).slice(-2);
-    const month: string = padZero(date.getMonth() + 1); // Les mois commencent à 0
+    const month: string = padZero(date.getMonth() + 1);
     const day: string = padZero(date.getDate());
   
     const hours: string = padZero(date.getHours());
@@ -26,7 +26,7 @@ const sessionFormater = (date: Date): Session => {
  */
 const sessionExtractor = (session: Session): Date | null => {
     const year: number = 2000 + Number(session.slice(0, 2));
-    const month: number = Number(session.slice(2, 4)) - 1; // Les mois commencent à 0
+    const month: number = Number(session.slice(2, 4)) - 1;
     const day: number = Number(session.slice(4, 6));
   
     const hours: number = Number(session.slice(7, 9));

@@ -30,7 +30,7 @@ export const tokenChecker = async (token: string, userMail: string): Promise<boo
         throw new Error("tokenChecker ~> user introuvable");
     }
     if (userMail && decodedMail != userMail) {
-        throw new Error("tokenChecker ~> le mail rentré en paramètre ne corespond pas au mail de l'utilisateur authentitfié. Requète rejeté.")
+        throw new Error("tokenChecker ~> le mail décodé ne correspond pas au mail user")
     }
     console.log(`tokenChecker ~> utilisateur authentifié : ${userMail}`);
     return true;
