@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ConnectedUser, User } from "@/types";
+import { User } from "@/types";
 import UserModel from "@/tools/backend/models/model.user";
 import sendMailToNewuser from "@/tools/backend/nodemailer/sendMailToNewUser";
 
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
         const emailIsSent = await sendMailToNewuser(newUser);
         if (!emailIsSent) {
             console.error("api/user/create ~> Erreur lors de l'envoi du mail de bienvenue");
-            return NextResponse.json("failed to send email", { status: 500 });
+            return NextResponse.json("failed to send email", { status: 511 });
         }
         // RENVOI DU NOUVEAU MEMBRE
         return NextResponse.json({ status: 201 });

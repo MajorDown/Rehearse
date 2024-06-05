@@ -3,6 +3,8 @@ import { useRef, useState } from "react";
 import { useRouter } from 'next/navigation'; 
 import PageSection from "@/components/PageSection";
 import PasswordValidator from "@/components/PasswordValidator";
+import createUser from "@/tools/frontend/requests/createUser";
+import { User } from "@/types";
 
 const Inscription = () => {
     const router = useRouter();
@@ -11,11 +13,34 @@ const Inscription = () => {
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log("submit");
+        if (nameRef?.current?.value && emailRef?.current?.value && passwordRef?.current?.value) {
+            const newUser: User = {
+                name: nameRef.current.value,
+                email: emailRef.current.value,
+                password: passwordRef.current.value,
+                profile: "free"
+            }
+            const response = await createUser(newUser);
+            switch (response.status) {
+                case 201:
+                    setErrorMsg("");
+                    router.push("/connexion");
+                    break;
+                case 409:
+                    setErrorMsg("Un utilisateur avec cette adresse mail existe déjà.");
+                    break;
+                case 511:
+                    setErrorMsg("Une erreur est survenue lors de l'envoi du mail d'inscription. Verifiez la validité de votre adresse.");
+                    break;
+                case 500:
+                    setErrorMsg("Un problême est survenue lors de votre inscription. Veuillez réessayer plus tard");
+                    break;           
+            }
+        }
         router.push("/");
-    };  
+    };
 
     return (
         <PageSection title="Inscrivez-vous !" id="inscriptionSection">
