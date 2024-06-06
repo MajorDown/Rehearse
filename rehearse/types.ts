@@ -25,6 +25,11 @@ export type ConnectedUser = Omit<User, 'password'> & {
     authToken: string;
 }
 
+export type UserAuthData = {
+    email: string;
+    password: string;
+}
+
 export type UserContext = {
     connectedUser: ConnectedUser | null;
     updateConnectedUser: (user: ConnectedUser | null) => void;

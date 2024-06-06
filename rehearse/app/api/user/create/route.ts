@@ -3,6 +3,9 @@ import { User } from "@/types";
 import UserModel from "@/tools/backend/models/model.user";
 import sendMailToNewuser from "@/tools/backend/nodemailer/sendMailToNewUser";
 
+/*
+* Route de création d'un nouvel utilisateur
+*/
 export async function POST(request: Request) {
     const { name, email, password,}: User = await request.json();
     console.log(

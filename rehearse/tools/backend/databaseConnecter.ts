@@ -3,7 +3,7 @@ import mongoose, { ConnectOptions } from "mongoose";
 let isConnected = false;
 
 const connectOptions: ConnectOptions = {
-  dbName: "guilder"
+  dbName: "rehearse"
 };
 
 const databaseConnecter = async () => {
