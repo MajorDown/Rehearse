@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ConnectedUser, User } from "@/types";
+import { ConnectedUser } from "@/types";
 import UserModel from "@/tools/backend/models/model.user";
 import {tokenMaker} from "@/tools/backend/tokenManager";
 import { passwordChecker } from "@/tools/backend/passwordManager";

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { User } from "@/types";
 import UserModel from "@/tools/backend/models/model.user";
 import sendMailToNewuser from "@/tools/backend/nodemailer/sendMailToNewUser";
+import { passwordCrypter } from "@/tools/backend/passwordManager";
 
 /*
 * Route de création d'un nouvel utilisateur
@@ -19,8 +20,10 @@ export async function POST(request: Request) {
             console.log("api/user/create ~> Utilisateur déjà existant");
             return NextResponse.json({ status: 409 });
         }
+        // CRYPTAGE DU MOT DE PASSE
+        const cryptedPassword = await passwordCrypter(password);
         // CREATION DU NOUVEAU MEMBRE
-        const newUser = new UserModel({name, email, password});
+        const newUser = new UserModel({name, email, password: cryptedPassword});
         await newUser.save();
         console.log("api/user/create ~> Utilisateur créé via l'adresse :", email);
         // ENVOI DU MAIL DE BIENVENUE
