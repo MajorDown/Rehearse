@@ -4,6 +4,9 @@ import { tokenChecker } from "@/tools/backend/tokenManager";
 import { passwordChecker, passwordCrypter } from "@/tools/backend/passwordManager";
 import UserModel from "@/tools/backend/models/model.user";
 
+/*
+* Route de modification du password d'un utilisateur
+*/
 export async function PATCH(request: Request) {
     const {connectedUser, lastPassword, newPassword } = await request.json();
     console.log(`api/password/update ~> Tentative de modification du password du compte ${connectedUser.email}`);

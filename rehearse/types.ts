@@ -30,6 +30,10 @@ export type UserAuthData = {
     password: string;
 }
 
+export type UserAuthDataForNewPassword = UserAuthData & {
+    newPassword: string;
+}
+
 export type UserContext = {
     connectedUser: ConnectedUser | null;
     updateConnectedUser: (user: ConnectedUser | null) => void;
