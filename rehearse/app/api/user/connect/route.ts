@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     );
     try {
         // VERIFICATION DE L'EXISTENCE DU USER
-        const userToConnect = await UserModel.findOne({email, password});
+        const userToConnect = await UserModel.findOne({email});
         if (!userToConnect) {
             console.log("api/user/connexion ~> Utilisateur non trouvé");
             return NextResponse.json({ status: 404 });
