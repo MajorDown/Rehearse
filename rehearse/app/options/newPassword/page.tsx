@@ -2,15 +2,14 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import PageSection from "@/components/PageSection";
-import connectUser from "@/tools/frontend/requests/connectUser";
 import { UserAuthDataForNewPassword } from "@/types";
 import { useUserContext } from "@/contexts/userContext";
+import updatePassword from "@/tools/frontend/requests/updatePassword";
 
 const Connexion = () => {
     const router = useRouter();
-    const { connectedUser, updateConnectedUser } = useUserContext();
+    const { connectedUser } = useUserContext();
     const [errorMsg, setErrorMsg] = useState<string>("");
-    const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
     const newPasswordRef = useRef<HTMLInputElement>(null);
     const confirmNewPasswordRef = useRef<HTMLInputElement>(null);
@@ -18,12 +17,13 @@ const Connexion = () => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (connectedUser && passwordRef?.current?.value && newPasswordRef?.current?.value && confirmNewPasswordRef?.current?.value) {
-            const newUser: UserAuthDataForNewPassword = {
+            const userWithUpdatedPassword: UserAuthDataForNewPassword = {
                 email: connectedUser.email,
+                authToken: connectedUser.authToken,
                 password: passwordRef.current.value,
-                newPassword: newPasswordRef.current.value,
+                newPassword: newPasswordRef.current.value
             }
-            const response = await connectUser(newUser);
+            const response = await updatePassword(userWithUpdatedPassword);
             switch (response.status) {
                 case 201:
                     setErrorMsg("");
@@ -38,6 +38,7 @@ const Connexion = () => {
 
     return (
         <PageSection title="Modifier votre mot de passe" id="newPasswordSection" needConnexion>
+            <p>Vous pouvez ici modifier votre mot de passe à votre guise.</p>
             <form onSubmit={(event) => handleSubmit(event)}>
                 <div className={"inputWrapper"}>
                     <label htmlFor="password">Votre mot de passe actuel :</label>

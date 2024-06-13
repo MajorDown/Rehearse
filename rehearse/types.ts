@@ -32,6 +32,7 @@ export type UserAuthData = {
 
 export type UserAuthDataForNewPassword = UserAuthData & {
     newPassword: string;
+    authToken: string;
 }
 
 export type UserContext = {
