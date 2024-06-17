@@ -29,7 +29,7 @@ const Connexion = () => {
                     break;           
             }
         }
-    };  
+    };
 
     return (
         <PageSection title="Connectez-vous !" id="connexionSection">

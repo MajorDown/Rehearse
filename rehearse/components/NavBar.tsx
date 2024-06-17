@@ -1,13 +1,14 @@
 'use client'
 import { useState, useEffect, MouseEvent } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useUserContext } from '@/contexts/userContext';
 
 const NavBar = () => {
     const [isUserChecked, setIsUserChecked] = useState<boolean>(false);
     const { connectedUser, updateConnectedUser } = useUserContext();
     const router = useRouter();
+    const pathName = usePathname();
 
     useEffect(() => {
         setIsUserChecked(true);
@@ -24,11 +25,11 @@ const NavBar = () => {
             {connectedUser && <p>Bienvenue, {connectedUser.name} !</p>}
             <nav>
                 {isUserChecked && !connectedUser && (
-                    <Link href="/connexion">Connexion</Link>
+                    <Link href="/connexion" className={pathName === "/connexion" ? "active" : ""}>Connexion</Link>
                 )}
                 {isUserChecked && connectedUser && (<>
-                    <Link href="/record">Record</Link>
-                    <Link href="/options">Options</Link>
+                    <Link href="/records" className={pathName === "/records" ? "active" : ""}>Records</Link>
+                    <Link href="/options" className={pathName === "/options" ? "active" : ""}>Options</Link>
                     <Link href="/" onClick={(event) => logout(event)}>Déconnexion</Link>
                 </>)}
             </nav>

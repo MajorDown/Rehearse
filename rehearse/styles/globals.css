@@ -6,7 +6,7 @@
     --fontSize: 16px;
     --radiusItem: 10px;
     --borderWindow: 10px solid #99F5FF;
-    --borderHover: 10px solid #B65700;
+    --borderHover: 5px solid #B65700;
     --paddingWindow: 20px;
     --paddingItem: 10px 20px;
 }
@@ -77,6 +77,31 @@ h1 {
     font-size: 20px;
     line-height: 20px;
     width: fit-content;
+}
+
+#navBar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 20px 20px 0 0;
+}
+
+#navBar a {
+    padding: 10px;
+    text-decoration: none;
+    border: transparent solid 5px;
+    transition: 0.3s;
+}
+
+#navBar a:hover {
+    border-radius: 10px;
+    border: var(--borderHover);
+    transition: 0.3s;
+}
+
+#navBar a.active {
+    text-decoration: underline;
+    transition: 0.3s;
 }
 
 main {
