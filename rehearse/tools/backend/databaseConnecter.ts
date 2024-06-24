@@ -6,6 +6,10 @@ const connectOptions: ConnectOptions = {
   dbName: "rehearse"
 };
 
+/**
+ * Connexion à la base de données MongoDB
+ * @return {Promise<void>}
+ */
 const databaseConnecter = async () => {
   mongoose.set("strictQuery", true);
   if (isConnected) {

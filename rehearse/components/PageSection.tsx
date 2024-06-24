@@ -10,6 +10,14 @@ type PageSectionProps = PropsWithChildren & {
     needConnexion?: boolean;
 }
 
+/**
+ * Section de page avec titre et contenu
+ * @param {PageSectionProps} props
+ * @param {string} props.title titre de la section
+ * @param {string} props.id id de la section
+ * @param {boolean} props.needConnexion si la section nécessite une connexion
+ * @return {JSX.Element}
+ */
 const PageSection = (props: PageSectionProps) => {
     const { connectedUser } = useUserContext();
     const [isUserChecked, setIsUserChecked] = useState<boolean>(false);

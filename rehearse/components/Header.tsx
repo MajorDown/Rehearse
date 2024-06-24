@@ -4,6 +4,10 @@ import { Finger_Paint } from 'next/font/google';
 import NavBar from './NavBar';
 const titleFont = Finger_Paint({weight: '400', subsets: ['latin']});
 
+/**
+ * Header du site
+ * @returns {JSX.Element}
+ */
 const Header = () => {
   return (
     <header>

@@ -3,6 +3,7 @@ import { User } from "@/types";
 import UserModel from "@/tools/backend/models/model.user";
 import sendMailToNewuser from "@/tools/backend/nodemailer/sendMailToNewUser";
 import { passwordCrypter } from "@/tools/backend/passwordManager";
+import databaseConnecter from "@/tools/backend/databaseConnecter";
 
 /*
 * Route de création d'un nouvel utilisateur
@@ -14,6 +15,8 @@ export async function POST(request: Request) {
         email
     );
     try {
+        // CONNEXION A LA DB
+        await databaseConnecter();
         // VERIFICATION DE L'EXISTENCE DU USER
         const userToCheck = await UserModel.findOne({email: email});
         if (userToCheck) {

@@ -5,6 +5,12 @@ type PageTitleProps = {
     title: string;
 }
 
+//jsdoc
+/**
+ * retourne un h2 pour la section de page
+ * @param props 
+ * @returns {JSX.Element}
+ */
 const PageTitle = (props: PageTitleProps) => {
   return (
     <h2 className={titleFont.className}>{props.title}</h2>

@@ -12,6 +12,11 @@ export function useUserContext(): UserContext {
   return context;
 }
 
+/**
+ * contexte global de l'utilisateur connecté
+ * @param children
+ * @return {JSX.Element}
+*/
 export const UserProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {  
   const [connectedUser, updateConnectedUser] = useState<ConnectedUser | null>(getConnectedUser);
 

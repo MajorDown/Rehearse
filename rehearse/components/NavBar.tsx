@@ -4,6 +4,10 @@ import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useUserContext } from '@/contexts/userContext';
 
+/**
+ * Barre de navigation
+ * @returns {JSX.Element}
+ */
 const NavBar = () => {
     const [isUserChecked, setIsUserChecked] = useState<boolean>(false);
     const { connectedUser, updateConnectedUser } = useUserContext();
