@@ -13,7 +13,10 @@ const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
     password: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    profile: { type: String, required: true },
+    profile: { 
+        status: {type: String, required: true},
+        endOfProfile: {type: String, required: true} 
+    }
 });
 
 UserSchema.plugin(uniqueValidator);
